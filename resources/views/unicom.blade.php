@@ -8,15 +8,7 @@
     </head>
     <body>
 
-        @if ($errors->any())
-            <div class="alert alert-danger" style="display: none">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
         <form id="form" method="POST" action="{{url('unicom/submit')}}">
 
             <table>
@@ -66,7 +58,15 @@
             <input type="hidden" name="_token" value="{{csrf_token() }}" />
 
         </form>
-
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <script type="text/javascript" src="/js/unicom.js"></script>
     </body>
 </html>
