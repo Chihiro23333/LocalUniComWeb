@@ -9,12 +9,11 @@
     <body>
         <p id="welecom_title">渣树坪村-李怀青</p>
         <ul>
-            <li class="taocan_active" name="111">
-                全国冰激凌融合99家庭不限量套餐 
-            </li>
-            <li class="taocan_active" name="222">
-                全国冰激凌融合99家庭不限量套餐 
-            </li>
+            @foreach($feeset as $v)
+                <li class="taocan_active" name="{{$v->feeset}}">
+                {{$v->name}}
+                </li>
+            @endforeach
         </ul>
 
         <div id="submitDiv">

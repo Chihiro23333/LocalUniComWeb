@@ -2,12 +2,22 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>联通沃扫码</title> 
+        <title>联通沃扫码</title>
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
         <link rel="stylesheet" type="text/css" href="/css/unicome.css">
     </head>
     <body>
-        <form id="form" method="POST" action="/">
+
+        @if ($errors->any())
+            <div class="alert alert-danger" style="display: none">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form id="form" method="POST" action="{{url('unicom/submit')}}">
 
             <table>
                 <tr>
@@ -46,12 +56,14 @@
                         <textarea class="input" type="text" name="remark" placeholder="备注" rows="4" maxlength="200"></textarea>
                     </td>
                 </tr>
-                
+
             </table>
 
             <div id="submitDiv">
                 <input id="submit" type="submit" value="立即办理">
             </div>
+            <input name="feeset" type="hidden" value="{{$feeset}}">
+            <input type="hidden" name="_token" value="{{csrf_token() }}" />
 
         </form>
 

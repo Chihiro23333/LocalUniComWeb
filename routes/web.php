@@ -12,14 +12,9 @@
 */
 
 // 首页
-Route::get('/', function () {
-	return view('index');
-    //return '<h1 style="text-align: center">欢迎光临</h1><div style="width: 100%;text-align: center"><img style="" src="/1.png"></div>';
-});
-Route::get('unicom', function () {
-	return view('unicom');
-	//return '<h1 style="text-align: center">欢迎光临</h1><div style="width: 100%;text-align: center"><img style="" src="/1.png"></div>';
-});
+Route::get('/', 'unicom\UnicomController@index');
+Route::get('unicom', 'unicom\UnicomController@unicom');
+Route::post('unicom/submit','unicom\UnicomController@submit');
 Route::get('/task', 'TaskController@home');
 Route::get('task/create', 'TaskController@create');
 Route::post('task', 'TaskController@store');

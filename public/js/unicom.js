@@ -1,5 +1,5 @@
 addLoadEvent(init);
-addLoadEvent(getParams);
+//addLoadEvent(getParams);
 
 
 function addLoadEvent(func){
@@ -18,6 +18,7 @@ function init(){
 }
 
 
+/*
 function getParams(){
     var params = window.location.search;
     var paramsArr =  params.substring(1,params.length).split("&");
@@ -34,3 +35,4 @@ function getParams(){
         form.appendChild(input);
     }
 }
+*/
